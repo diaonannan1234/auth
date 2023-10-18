@@ -1,0 +1,4 @@
+p, alice, /task, get
+p, bob, /task, post
+p, lisi, /task,delete
+p, bob, /task,put

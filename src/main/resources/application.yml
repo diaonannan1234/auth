@@ -1,0 +1,21 @@
+# application.yml
+
+spring:
+  application:
+    name: auth
+  datasource: # use in-memory db for unit testing
+    url: ${COMPANY_DATASOURCE_URL:jdbc:h2:mem:auth_company;DB_CLOSE_DELAY=-1;DB_CLOSE_ON_EXIT=FALSE;MODE=MYSQL}
+    username: ${COMPANY_DATASOURCE_USERNAME:sa}
+    password: ${COMPANY_DATASOURCE_PASSWORD:sa}
+    driver-class-name: org.h2.Driver
+    jpa:
+      database-platform: org.hibernate.dialect.H2Dialect
+#      database-platform: org.hibernate.dialect.MySQL5InnoDBDialect
+      hibernate:
+        ddl-auto: create
+      show-sql: true
+      properties:
+        hibernate:
+          format_sql: true
+server:
+  port: ${SERVER_PORT:8087}
